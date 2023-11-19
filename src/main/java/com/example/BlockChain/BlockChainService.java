@@ -17,4 +17,13 @@ public class BlockChainService {
         BlockChainContractDto blockChainContractDto = blockChain.getContract(dealId);
         return blockChainContractDto;
     }
+
+    public BlockChainContractDto test(Long dealId) throws Exception {
+        BlockChainContractDto blockChainContractDto = BlockChainContractDto.builder()
+                .price(1000L)
+                .dealId(dealId)
+                .note("test")
+                .repAndRes("test").build();
+        return blockChainContractDto;
+    }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/contract")
+@RequestMapping("/api/contract")
 public class BlockChainController {
 
     private final BlockChainService blockChainService;
@@ -20,6 +20,12 @@ public class BlockChainController {
 
     @GetMapping (value ="/blockchain", produces = "application/json; charset=UTF-8")
     public Object getBlock(@RequestParam Long dealId) throws Exception {
+        BlockChainContractDto blockChainContractDto = blockChainService.getBlock(dealId);
+        return blockChainContractDto;
+    }
+
+    @GetMapping (value ="/test", produces = "application/json; charset=UTF-8")
+    public Object test(@RequestParam Long dealId) throws Exception {
         BlockChainContractDto blockChainContractDto = blockChainService.getBlock(dealId);
         return blockChainContractDto;
     }
