@@ -7,7 +7,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/contract")
+@RequestMapping("/api")
 public class BlockChainController {
 
     private final BlockChainService blockChainService;
