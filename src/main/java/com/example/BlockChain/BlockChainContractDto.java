@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class BlockChainContract {
+public class BlockChainContractDto {
     private Long dealId;
     private String repAndRes;
     private String note;

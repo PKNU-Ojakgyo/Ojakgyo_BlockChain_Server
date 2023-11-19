@@ -9,12 +9,12 @@ public class BlockChainService {
 
     private final BlockChain blockChain;
 
-    public void saveBlock(BlockChainContract request) throws Exception {
+    public void saveBlock(BlockChainContractDto request) throws Exception {
         blockChain.createContract(request);
     }
 
-    public BlockChainContract getBlock(Long dealId) throws Exception {
-        BlockChainContract blockChainContract = blockChain.getContract(dealId);
-        return blockChainContract;
+    public BlockChainContractDto getBlock(Long dealId) throws Exception {
+        BlockChainContractDto blockChainContractDto = blockChain.getContract(dealId);
+        return blockChainContractDto;
     }
 }
