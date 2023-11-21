@@ -14,14 +14,12 @@ public class BlockChainService {
     }
 
     public BlockChainContractDto getBlock(Long dealId) throws Exception {
-        BlockChainContractDto blockChainContractDto = blockChain.getContract(dealId);
+        BlockChainContract blockChainContract = blockChain.getContract(dealId);
+        BlockChainContractDto blockChainContractDto = new BlockChainContractDto();
+        blockChainContractDto.setNote(blockChainContract.getNote());
+        blockChainContractDto.setPrice(Long.valueOf(blockChainContract.getPrice()));
+        blockChainContractDto.setDealId(Long.valueOf(blockChainContract.getDealID()));
+        blockChainContractDto.setRepAndRes(blockChainContract.getRepAndRes());
         return blockChainContractDto;
-    }
-
-    public void test(BlockChainContractDto request) throws Exception {
-        System.out.println(request.getNote());
-        System.out.println(request.getRepAndRes());
-        System.out.println(request.getDealId());
-        System.out.println(request.getPrice());
     }
 }

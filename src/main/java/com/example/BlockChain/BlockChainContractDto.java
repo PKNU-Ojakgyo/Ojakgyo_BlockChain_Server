@@ -1,11 +1,12 @@
 package com.example.BlockChain;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class BlockChainContractDto {
+    public BlockChainContractDto() {
+        // 기본 생성자 추가
+    }
     private Long dealId;
     private String repAndRes;
     private String note;

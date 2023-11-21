@@ -61,9 +61,9 @@ public class BlockChain {
         return builder.connect();
     }
 
-    public BlockChainContractDto getContract(Long dealId) throws Exception {
+    public BlockChainContract getContract(Long dealId) throws Exception {
         // create a gateway connection
-        BlockChainContractDto blockChainContractDto;
+        BlockChainContract blockChainContract;
         try (Gateway gateway = connect()) {
 
             // get the network and contract
@@ -71,11 +71,10 @@ public class BlockChain {
             Contract contract = network.getContract("Ojakgyocc");
 
             byte[] result = contract.evaluateTransaction("ReadAsset", String.valueOf(dealId));
-            blockChainContractDto = mapper.readValue(result, BlockChainContractDto.class);
-            System.exit(0);
+            blockChainContract = mapper.readValue(result, BlockChainContract.class);
         }
 
-        return blockChainContractDto;
+        return blockChainContract;
     }
 
 
@@ -85,10 +84,9 @@ public class BlockChain {
             Network network = gateway.getNetwork("channel1");
             Contract contract = network.getContract("Ojakgyocc");
 
-            byte[] result = contract.evaluateTransaction("CreateAsset", String.valueOf(blockChainContractDto.getDealId())
+            byte[] result = contract.submitTransaction("CreateAsset", String.valueOf(blockChainContractDto.getDealId())
                     , blockChainContractDto.getRepAndRes(), blockChainContractDto.getNote(), String.valueOf(blockChainContractDto.getPrice()));
-            System.out.println(new String(result));
-            System.exit(0);
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!" + new String(result));
         }
     }
 
