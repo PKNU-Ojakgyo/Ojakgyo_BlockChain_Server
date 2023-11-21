@@ -18,12 +18,10 @@ public class BlockChainService {
         return blockChainContractDto;
     }
 
-    public BlockChainContractDto test(Long dealId) throws Exception {
-        BlockChainContractDto blockChainContractDto = BlockChainContractDto.builder()
-                .price(1000L)
-                .dealId(dealId)
-                .note("test")
-                .repAndRes("test").build();
-        return blockChainContractDto;
+    public void test(BlockChainContractDto request) throws Exception {
+        System.out.println(request.getNote());
+        System.out.println(request.getRepAndRes());
+        System.out.println(request.getDealId());
+        System.out.println(request.getPrice());
     }
 }
